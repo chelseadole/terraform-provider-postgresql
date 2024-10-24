@@ -178,6 +178,7 @@ type Config struct {
 	ConnectTimeoutSec               int
 	MaxConns                        int
 	ExpectedVersion                 semver.Version
+	BinaryParameters                bool
 	SSLClientCert                   *ClientCertificateConfig
 	SSLRootCertPath                 string
 	GCPIAMImpersonateServiceAccount string
@@ -220,6 +221,10 @@ func (c *Config) connParams() []string {
 	if c.Scheme == "postgres" {
 		params["sslmode"] = c.SSLMode
 		params["connect_timeout"] = strconv.Itoa(c.ConnectTimeoutSec)
+	}
+
+	if c.BinaryParameters {
+		params["binary_parameters"] = "yes"
 	}
 
 	if c.featureSupported(featureFallbackApplicationName) {

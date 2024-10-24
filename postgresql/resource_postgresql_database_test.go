@@ -42,6 +42,8 @@ func TestAccPostgresqlDatabase_Basic(t *testing.T) {
 					resource.TestCheckResourceAttr(
 						"postgresql_database.default_opts", "connection_limit", "-1"),
 					resource.TestCheckResourceAttr(
+						"postgresql_database.default_opts", "binary_parameters", "false"),
+					resource.TestCheckResourceAttr(
 						"postgresql_database.default_opts", "is_template", "false"),
 					resource.TestCheckResourceAttr(
 						"postgresql_database.default_opts", "alter_object_ownership", "false"),

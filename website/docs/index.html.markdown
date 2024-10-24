@@ -172,6 +172,7 @@ The following arguments are supported:
   default is `180s`.  Zero or not specified means wait indefinitely.
 * `max_connections` - (Optional) Set the maximum number of open connections to
   the database. The default is `20`.  Zero means unlimited open connections.
+* `binary_parameters` = (Optional) If set to `true`, the connection transmits data for certain data types in [binary format](https://www.postgresql.org/docs/current/protocol-overview.html#PROTOCOL-FORMAT-CODES). The default is `false` (text format).
 * `expected_version` - (Optional) Specify a hint to Terraform regarding the
   expected version that the provider will be talking with.  This is a required
   hint in order for Terraform to talk with an ancient version of PostgreSQL.
